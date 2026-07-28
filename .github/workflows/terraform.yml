@@ -49,7 +49,7 @@ jobs:
       # 6. Generate Execution Plan
       - name: Terraform Plan
         id: plan
-        run: terraform plan -no-color
+        run: terraform plan -no-color -input=false
         continue-on-error: true
 
       # 7. Apply Changes (Runs ONLY on direct pushes/merges to main branch)

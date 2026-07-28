@@ -93,7 +93,7 @@ module "my_practice_ec2" {
   source = "./modules/ec2-instance"
 
   name          = var.name
-  ami           = var.ami
+  ami           = data.aws_ami.amazon_linux_2023.id
   instance_type = var.instance_type
 
   # Dynamically fetch the first public subnet ID created by the VPC module!
