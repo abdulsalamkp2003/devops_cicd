@@ -15,25 +15,3 @@ variable "instance_type" {
   type        = string
   default     = "t2.micro"
 }
-
-variable "name" {
-  description = "Name tag for the instance"
-  type        = string
-}
-
-variable "ami" {
-  description = "AMI ID for the instance"
-  type        = string
-  default     = ""
-}
-
-variable "subnet_id" {
-  description = "Subnet ID where the instance will be launched"
-  type        = string
-}
-
-variable "tags" {
-  description = "Tags to apply to resources"
-  type        = map(string)
-  default     = {}
-}
