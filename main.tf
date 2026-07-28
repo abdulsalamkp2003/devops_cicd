@@ -92,7 +92,7 @@ data "aws_ami" "amazon_linux_2023" {
 module "my_practice_ec2" {
   source = "./modules/ec2-instance"
 
-  name          = "abdul-practice-instance"
+  name          = var.name
   ami           = var.ami
   instance_type = var.instance_type
   
