@@ -24,7 +24,7 @@ variable "name" {
 variable "ami" {
   type        = string
   description = "AMI ID for the EC2 instance"
-  default = ""
+  default     = ""
 }
 
 variable "tags" {
