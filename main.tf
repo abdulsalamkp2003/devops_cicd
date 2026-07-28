@@ -93,17 +93,18 @@ module "my_practice_ec2" {
   source = "./modules/ec2-instance"
 
   name          = "abdul-practice-instance"
-  ami           = data.aws_ami.amazon_linux_2023.id
-  instance_type = "t2.medium"
+  ami           = var.ami
+  instance_type = var.instance_type
   
   # Dynamically fetch the first public subnet ID created by the VPC module!
   subnet_id = module.vpc.public_subnets[0]
 
-  tags = {
-    Environment = "practice"
-    ManagedBy   = "Terraform"
-  }
-  
+  tags = merge(
+    var.tags,
+    {
+      Name = var.name
+	}  
+  )
   # Explicit dependency: Force this module to wait until app_server is fully created
   depends_on = [
     aws_instance.app_server
