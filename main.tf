@@ -32,11 +32,11 @@ terraform {
   required_version = ">= 1.0"
 
   backend "s3" {
-    bucket         = "abdul-tf-state-storage-2026"
-    key            = "global/s3/terraform.tfstate"
-    region         = "us-west-2"
-    use_lockfile   = true
-    encrypt        = true
+    bucket       = "abdul-tf-state-storage-2026"
+    key          = "global/s3/terraform.tfstate"
+    region       = "us-west-2"
+    use_lockfile = true
+    encrypt      = true
   }
 }
 
@@ -54,14 +54,14 @@ data "aws_ami" "ubuntu" {
 resource "aws_instance" "app_server" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
-  
+
   vpc_security_group_ids = [module.vpc.default_security_group_id]
-  subnet_id				 = module.vpc.private_subnets[0]
+  subnet_id              = module.vpc.private_subnets[0]
 
   tags = {
-    Name = var.instance_name
-	ManualChangeEC2 = var.instance_tag
-	
+    Name            = var.instance_name
+    ManualChangeEC2 = var.instance_tag
+
   }
 }
 
@@ -95,7 +95,7 @@ module "my_practice_ec2" {
   name          = var.name
   ami           = var.ami
   instance_type = var.instance_type
-  
+
   # Dynamically fetch the first public subnet ID created by the VPC module!
   subnet_id = module.vpc.public_subnets[0]
 
@@ -103,7 +103,7 @@ module "my_practice_ec2" {
     var.tags,
     {
       Name = var.name
-	}  
+    }
   )
   # Explicit dependency: Force this module to wait until app_server is fully created
   depends_on = [
