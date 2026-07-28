@@ -24,6 +24,7 @@ variable "name" {
 variable "ami" {
   description = "AMI ID for the instance"
   type        = string
+  default     = ""
 }
 
 variable "subnet_id" {

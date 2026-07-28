@@ -23,6 +23,7 @@ variable "region" {
 variable "ami" {
   description = "ID of AMI to use for the instance"
   type        = string
+  default     = ""
 }
 
 variable "ami_ssm_parameter" {
