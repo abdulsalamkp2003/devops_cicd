@@ -27,7 +27,7 @@ resource "aws_iam_openid_connect_provider" "github" {
 # Local variables to configure repository constraints easily
 locals {
   github_username_or_org = "abdulsalamkp2003" # e.g., "abdul-repo"
-  github_repo_name       = "devops_cicd"        # e.g., "learn-terraform-get-started-aws"
+  github_repo_name       = "devops_cicd"      # e.g., "learn-terraform-get-started-aws"
 }
 
 # Create the IAM Role that GitHub Actions will assume
