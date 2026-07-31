@@ -2,6 +2,7 @@ provider "aws" {
   region = "us-west-2"
 }
 
+/*
 # S3 Bucket for state storage
 resource "aws_s3_bucket" "tf_state" {
   bucket        = "abdul-tf-state-storage-2026"
@@ -27,7 +28,7 @@ resource "aws_dynamodb_table" "tf_locks" {
     type = "S"
   }
 }
-
+*/
 terraform {
   required_version = ">= 1.0"
 
